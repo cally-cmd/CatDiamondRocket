@@ -15,6 +15,7 @@ public class Dropping : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
     }
 
@@ -35,7 +36,13 @@ public class Dropping : MonoBehaviour
     public IEnumerator DropObject() {
         for (;;) {
             GameObject obj = WhichObject();
-            Instantiate(obj);
+
+            Vector2 pos = new Vector2 (Random.Range(-10.5f, 10.5f), Random.Range(10f, 11f));
+
+            //Instantiate(obj);
+            
+            Instantiate (obj, pos,Quaternion.identity,transform);
+
             print("Object created!");
             yield return new WaitForSeconds(Random.Range(1.5f, 3f));
         }
