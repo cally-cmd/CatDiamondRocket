@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
+    public GameObject sky;
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         scoreText.text = "Score : " + score;
+        sky.GetComponent<Dropping>().DropObjects();
     }
 
     // Update is called once per frame
