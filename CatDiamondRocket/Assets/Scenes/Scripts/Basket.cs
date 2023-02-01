@@ -19,11 +19,12 @@ public class Basket : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         print("Caught an object");
         if (col.gameObject.tag  == "Diamond") {
-            GameManager.Instance.IncScore();
+            GameManager.Instance.IncScore(1);
             print("Score increased by 1");
         }
         if (col.gameObject.tag == "Rocket") {
             print("BOOM!");
+            GameManager.Instance.IncScore(-5);
         }
         Destroy(col.gameObject);
     }    

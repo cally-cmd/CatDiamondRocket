@@ -24,8 +24,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void IncScore() {
-        score++;
+    public void IncScore(int val) {
+        score += val;
+        if (score < 0) {
+            score = 0;
+        }
         scoreText.text = "Score : " + score;
     }
 
