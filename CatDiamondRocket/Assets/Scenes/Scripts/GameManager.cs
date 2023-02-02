@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
 
     private int score;
+    public int level;
 
     public TextMeshProUGUI scoreText;
 
@@ -30,11 +31,20 @@ public class GameManager : MonoBehaviour
             score = 0;
         }
         scoreText.text = "Score : " + score;
+
+        if (score >= 0 && score < 5) {
+            level = 1;
+        } else if (score >= 5 && score < 10) {
+            level  = 2;
+        } else {
+            level = 3;
+        }
     }
 
     void Start()
     {
         score = 0;
+        level = 1;
         scoreText.text = "Score : " + score;
         sky.GetComponent<Dropping>().DropObjects();
     }

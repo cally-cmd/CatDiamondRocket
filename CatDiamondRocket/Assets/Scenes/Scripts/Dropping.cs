@@ -6,10 +6,11 @@ public class Dropping : MonoBehaviour
 {
     public GameObject diamond;
     public GameObject rocket;
+    private float gravity;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gravity  = -9.8f;
     }
 
     // Update is called once per frame
@@ -39,9 +40,11 @@ public class Dropping : MonoBehaviour
 
             Vector2 pos = new Vector2 (Random.Range(-10.5f, 10.5f), Random.Range(10f, 11f));
 
+            Physics2D.gravity = new Vector2(0, gravity * GameManager.Instance.level);
+
             //Instantiate(obj);
             
-            Instantiate (obj, pos,Quaternion.identity,transform);
+            Instantiate (obj, pos, Quaternion.identity,transform);
 
             print("Object created!");
             yield return new WaitForSeconds(Random.Range(1.5f, 3f));
