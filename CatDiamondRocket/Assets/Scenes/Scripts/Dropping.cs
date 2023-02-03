@@ -38,7 +38,7 @@ public class Dropping : MonoBehaviour
         for (;;) {
             GameObject obj = WhichObject();
 
-            Vector2 pos = new Vector2 (Random.Range(-8, 8), Random.Range(10, 11));
+            Vector2 pos = new Vector2 (Random.Range(-6.5f, 8), Random.Range(10, 11));
 
             Physics2D.gravity = new Vector2(0, gravity * GameManager.Instance.level);
 
